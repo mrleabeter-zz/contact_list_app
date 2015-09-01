@@ -15,4 +15,10 @@ class ContactDatabase
     end
   end
 
+  def self.all_contacts
+    CSV.foreach('contacts.csv') do |row|
+        puts row.inspect
+    end
+  end
+
 end

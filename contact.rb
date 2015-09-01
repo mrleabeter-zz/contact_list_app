@@ -30,7 +30,7 @@ class Contact
     end
  
     def all
-      # TODO: Return the list of contacts, as is
+      # ContactDatabase.all_contacts
     end
     
     def show(id)

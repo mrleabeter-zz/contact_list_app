@@ -26,6 +26,7 @@ class Application
     when "list"
       puts "You selected list all contacts."
       puts "Here is a list of all your contacts:"
+      ContactDatabase.all_contacts
     when "show"
       puts "You selected show a contact."
       puts "Please enter the name of the contact you wish to show."
