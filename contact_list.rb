@@ -22,7 +22,7 @@ class Application
       last_name = STDIN.gets.chomp
       puts "Please enter the new contact's email address"
       email = STDIN.gets.chomp
-      Contact.create(first_name, last_name, email).to_a
+      Contact.create(first_name, last_name, email)
     when "list"
       puts "You selected list all contacts."
       puts "Here is a list of all your contacts:"

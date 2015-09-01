@@ -20,7 +20,7 @@ class Contact
       contact_array << first_name
       contact_array << last_name
       contact_array << email
-      puts contact_array.inspect
+      ContactDatabase.add_to_database(contact_array)
     end
  
     def find(term)
