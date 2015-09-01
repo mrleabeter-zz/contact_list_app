@@ -16,7 +16,9 @@ class Contact
   class << self
     def create(first_name, last_name, email)
       new_contact = Contact.new(first_name, last_name, email)
+      id = ContactDatabase.total_contacts
       contact_array = []
+      contact_array << id +=1
       contact_array << first_name
       contact_array << last_name
       contact_array << email
