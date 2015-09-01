@@ -14,10 +14,13 @@ class ContactDatabase
       csv.readlines.size
     end
   end
-
   def self.all_contacts
     CSV.foreach('contacts.csv') do |row|
-        puts row.inspect
+        puts "#{row[0]}: #{row[1]} #{row[2]}  (#{row[3]})"
+    end
+    CSV.open("contacts.csv", "r") do |csv|
+      puts "---"
+      puts "#{csv.readlines.size} records total"
     end
   end
 

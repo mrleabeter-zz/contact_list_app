@@ -23,6 +23,7 @@ class Application
       puts "Please enter the new contact's email address"
       email = STDIN.gets.chomp
       Contact.create(first_name, last_name, email)
+      puts "The ID for this new contact is #{ContactDatabase.total_contacts}"
     when "list"
       puts "You selected list all contacts."
       puts "Here is a list of all your contacts:"
