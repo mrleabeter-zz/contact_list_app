@@ -25,14 +25,20 @@ class ContactDatabase
     end
   end
 
-  def self.show_contact_by_id(contact_id)
+  def self.contact_by_id(contact_id)
+    contact = nil
     CSV.foreach('contacts.csv') do |csv|
       if csv[0] == contact_id
-        puts "ID #: #{csv[0]}"
-        puts "First Name: #{csv[1]}"
-        puts "Last Name: #{csv[2]}"
-        puts "Email: #{csv[3]}"
+        contact = csv
       end
+    end
+    if contact
+        puts "ID #: #{contact[0]}"
+        puts "First Name: #{contact[1]}"
+        puts "Last Name: #{contact[2]}"
+        puts "Email: #{contact[3]}"
+    else
+        puts "Not found: I'm sorry, but I don't have a record for contact ID ##{contact_id}"
     end
   end
 

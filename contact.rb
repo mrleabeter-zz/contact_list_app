@@ -25,10 +25,6 @@ class Contact
       # TODO: Will find and return contacts that contain the term in the first name, last name or email
     end
     
-    def show(contact_id)
-      
-    end
-    
   end
  
 end

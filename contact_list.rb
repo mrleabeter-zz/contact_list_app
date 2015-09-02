@@ -36,12 +36,13 @@ class Application
       puts "You selected show a contact."
       puts "Please enter the ID number of the contact you wish to show."
       contact_id = STDIN.gets.chomp
-      ContactDatabase.show_contact_by_id(contact_id)
+      ContactDatabase.contact_by_id(contact_id)
 
     when "find"
       puts "You selected find a contact."
-      puts "Please enter the first name of the contact you wish to find."
-      find_name = STDIN.gets.chomp
+      puts "Please enter a term to help me find contacts that match."
+      search_term = STDIN.gets.chomp
+      ContactDatabase.find_contact
     else
       puts "That is not a valid command."
     end
