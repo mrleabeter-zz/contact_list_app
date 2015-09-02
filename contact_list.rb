@@ -26,6 +26,9 @@ class Application
       puts "Please enter the new contact's last name."
       last_name = STDIN.gets.chomp
       Contact.create(first_name, last_name, email)
+      #loop start
+      Contact.phone_number
+      #loop end
       puts "The ID for this new contact is #{ContactDatabase.total_contacts}"
 
     when "list"

@@ -18,7 +18,21 @@ class Contact
       contact_array << first_name
       contact_array << last_name
       contact_array << email
+      
       ContactDatabase.add_to_database(contact_array)
+    end
+
+    def phone_number
+      phone_number_hash = {}
+      input = ""
+      label = ""
+      while input != "done" do
+        puts "Please enter a label and phone number using the following format: label, XXX-XXX-XXXX."
+        puts "Or enter 'done' to complete the new contact"
+        input = STDIN.gets.chomp
+        (label, number) = input.split(",")
+        phone_number_hash[label] = number
+      end
     end
     
   end
