@@ -20,10 +20,6 @@ class Contact
       contact_array << email
       ContactDatabase.add_to_database(contact_array)
     end
- 
-    def find(term)
-      # TODO: Will find and return contacts that contain the term in the first name, last name or email
-    end
     
   end
  

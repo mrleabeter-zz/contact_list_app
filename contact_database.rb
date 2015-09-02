@@ -42,4 +42,21 @@ class ContactDatabase
     end
   end
 
+  def self.find_contact(search_term)
+    contact = nil
+    CSV.foreach('contacts.csv') do |csv|
+      if csv.any?{ |string| string.include?(search_term) }
+        contact = csv
+      end
+    end
+    if contact
+        puts "ID #: #{contact[0]}"
+        puts "First Name: #{contact[1]}"
+        puts "Last Name: #{contact[2]}"
+        puts "Email: #{contact[3]}"
+    else
+        puts "Not found: I'm sorry, but I don't have any records containing #{search_term}"
+    end
+  end
+
 end

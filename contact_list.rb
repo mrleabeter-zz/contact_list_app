@@ -40,9 +40,9 @@ class Application
 
     when "find"
       puts "You selected find a contact."
-      puts "Please enter a term to help me find contacts that match."
+      puts "Please enter a term to help me find contacts that match it."
       search_term = STDIN.gets.chomp
-      ContactDatabase.find_contact
+      ContactDatabase.find_contact(search_term)
     else
       puts "That is not a valid command."
     end
