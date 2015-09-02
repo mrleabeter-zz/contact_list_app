@@ -22,7 +22,6 @@ class Contact
   def add_phone_num(input)
     (label, number) = input.split(",")
     @phone_number_hash[label] = number
-    # @contact_array << @phone_number_hash
   end
 
   def save
