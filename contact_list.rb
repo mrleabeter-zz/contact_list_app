@@ -25,10 +25,19 @@ class Application
       first_name = STDIN.gets.chomp
       puts "Please enter the new contact's last name."
       last_name = STDIN.gets.chomp
-      Contact.create(first_name, last_name, email)
-      #loop start
-      Contact.phone_number
-      #loop end
+      new_contact = Contact.new(first_name, last_name, email)
+      new_contact.create
+      input = ""
+      label = ""
+      while input != "done" do
+        puts "Please enter a label and phone number using the following format: label, XXX-XXX-XXXX."
+        puts "Or enter 'done' to complete the new contact"
+        input = STDIN.gets.chomp
+        if input != "done"
+          new_contact.add_phone_num(input)
+        end
+      end
+      new_contact.save
       puts "The ID for this new contact is #{ContactDatabase.total_contacts}"
 
     when "list"
