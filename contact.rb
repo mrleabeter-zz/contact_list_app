@@ -8,10 +8,6 @@ class Contact
     @email = email
   end
  
-  def to_s
-    # TODO: return string representation of Contact
-  end
- 
   ## Class Methods
   class << self
     def create(first_name, last_name, email)
@@ -28,13 +24,9 @@ class Contact
     def find(term)
       # TODO: Will find and return contacts that contain the term in the first name, last name or email
     end
- 
-    def all
-      # ContactDatabase.all_contacts
-    end
     
-    def show(id)
-      # TODO: Show a contact, based on ID
+    def show(contact_id)
+      
     end
     
   end

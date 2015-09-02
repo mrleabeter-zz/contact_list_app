@@ -14,13 +14,25 @@ class ContactDatabase
       csv.readlines.size
     end
   end
-  def self.all_contacts
-    CSV.foreach('contacts.csv') do |row|
-        puts "#{row[0]}: #{row[1]} #{row[2]}  (#{row[3]})"
+
+  def self.list_all_contacts
+    CSV.foreach('contacts.csv') do |csv|
+        puts "#{csv[0]}: #{csv[1]} #{csv[2]}  (#{csv[3]})"
     end
     CSV.open("contacts.csv", "r") do |csv|
       puts "---"
       puts "#{csv.readlines.size} records total"
+    end
+  end
+
+  def self.show_contact_by_id(contact_id)
+    CSV.foreach('contacts.csv') do |csv|
+      if csv[0] == contact_id
+        puts "ID #: #{csv[0]}"
+        puts "First Name: #{csv[1]}"
+        puts "Last Name: #{csv[2]}"
+        puts "Email: #{csv[3]}"
+      end
     end
   end
 

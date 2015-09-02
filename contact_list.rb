@@ -8,12 +8,14 @@ class Application
 
   def command_list
     case ARGV[0]
+
     when "help"
       puts "Here is a list of available commands:"
       puts "new - Create a new contact"
       puts "list - List all contacts"
       puts "show - Show a contact"
       puts "find - Find a contact"
+
     when "new"
       puts "You selected create a new contact."
       puts "Please enter the new contact's first name."
@@ -24,16 +26,22 @@ class Application
       email = STDIN.gets.chomp
       Contact.create(first_name, last_name, email)
       puts "The ID for this new contact is #{ContactDatabase.total_contacts}"
+
     when "list"
       puts "You selected list all contacts."
       puts "Here is a list of all your contacts:"
-      ContactDatabase.all_contacts
+      ContactDatabase.list_all_contacts
+
     when "show"
       puts "You selected show a contact."
-      puts "Please enter the name of the contact you wish to show."
+      puts "Please enter the ID number of the contact you wish to show."
+      contact_id = STDIN.gets.chomp
+      ContactDatabase.show_contact_by_id(contact_id)
+
     when "find"
       puts "You selected find a contact."
-      puts "Please enter the name of the contact you wish to find."
+      puts "Please enter the first name of the contact you wish to find."
+      find_name = STDIN.gets.chomp
     else
       puts "That is not a valid command."
     end
