@@ -17,7 +17,7 @@ class ContactDatabase
 
   def self.list_all_contacts
     CSV.foreach('contacts.csv') do |csv|
-        puts "#{csv[0]}: #{csv[1]} #{csv[2]}  (#{csv[3]})"
+        puts "#{csv[0]}: #{csv[1]} #{csv[2]} (#{csv[3]}) #{csv[4]}"
     end
     CSV.open("contacts.csv", "r") do |csv|
       puts "---"

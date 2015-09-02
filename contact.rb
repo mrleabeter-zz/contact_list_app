@@ -6,8 +6,8 @@ class Contact
     @first_name = first_name
     @last_name = last_name
     @email = email
-    @phone_number_hash = {}
     @contact_array = []
+    @phone_number_hash = {}
   end
 
   def create
@@ -16,12 +16,13 @@ class Contact
     @contact_array << @first_name
     @contact_array << @last_name
     @contact_array << @email
+    @contact_array<< @phone_number_hash
   end
 
   def add_phone_num(input)
     (label, number) = input.split(",")
     @phone_number_hash[label] = number
-    @contact_array << @phone_number_hash
+    # @contact_array << @phone_number_hash
   end
 
   def save
