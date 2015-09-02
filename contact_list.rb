@@ -18,12 +18,13 @@ class Application
 
     when "new"
       puts "You selected create a new contact."
+      puts "Please enter the new contact's email address"
+      email = STDIN.gets.chomp
+      ContactDatabase.find_duplicate(email)
       puts "Please enter the new contact's first name."
       first_name = STDIN.gets.chomp
       puts "Please enter the new contact's last name."
       last_name = STDIN.gets.chomp
-      puts "Please enter the new contact's email address"
-      email = STDIN.gets.chomp
       Contact.create(first_name, last_name, email)
       puts "The ID for this new contact is #{ContactDatabase.total_contacts}"
 
@@ -33,9 +34,7 @@ class Application
       ContactDatabase.list_all_contacts
 
     when "show"
-      puts "You selected show a contact."
-      puts "Please enter the ID number of the contact you wish to show."
-      contact_id = STDIN.gets.chomp
+      contact_id = ARGV[1]
       ContactDatabase.contact_by_id(contact_id)
 
     when "find"

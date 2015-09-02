@@ -59,4 +59,15 @@ class ContactDatabase
     end
   end
 
+  def self.find_duplicate(email)
+    CSV.foreach('contacts.csv') do |csv|
+      if csv[3] == email
+        puts "A contact with this email address already exists."
+        puts "Here is the full contact info associated with that email."
+        find_contact(email)
+        abort
+      end
+    end
+  end
+
 end
